@@ -4,11 +4,14 @@ header {
     left: 0;
     right: 0;
     z-index: 1000; 
-    background-color: #465f79; 
+    background-color: #ff9e80; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
     font-family:Arial, Helvetica, sans-serif;
+
   }
 
-header.MuiTypography-root {
-    font-family:Arial, Helvetica, sans-serif;
-}
+  header .MuiTypography-root {
+    color: rgb(0, 0, 0); 
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }

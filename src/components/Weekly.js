@@ -8,6 +8,7 @@ import {
   Box,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import "../css/weekly.css";
 
 const Weekly = () => {
   const [recipes, setRecipes] = useState([]);
