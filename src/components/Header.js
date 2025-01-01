@@ -15,7 +15,7 @@ const Header = () => {
         <img
           src="/logo.png" 
           alt="NutriFit AI Logo"
-          style={{ height: "40px", marginRight: "10px" }}
+          style={{ height: "65px", marginRight: "5px" }}
         />
         <Typography variant="h5" component="div">
           NutriFit AI
