@@ -19,7 +19,7 @@ const Recipe = () => {
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          "https://polar-hamlet-33806-0d6c04df531d.herokuapp.com/latest-meal-data"
+          "https://protected-citadel-60147-8c18822cbed9.herokuapp.com/latest-meal-data"
         );
         const data = await response.json();
         setMeals(data.data);

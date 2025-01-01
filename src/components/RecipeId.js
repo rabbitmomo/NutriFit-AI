@@ -9,7 +9,7 @@ const RecipeId = () => {
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
-    fetch(`https://polar-hamlet-33806-0d6c04df531d.herokuapp.com/recipe-data/${id}`)
+    fetch(`https://protected-citadel-60147-8c18822cbed9.herokuapp.com/recipe-data/${id}`)
       .then(response => response.json())
       .then(data => setRecipe(data))
       .catch(error => console.error('Error fetching recipe:', error));

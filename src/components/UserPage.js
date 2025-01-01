@@ -32,7 +32,7 @@ const UserPage = () => {
 
     try {
       const { data } = await axios.post(
-        "http://polar-hamlet-33806-0d6c04df531d.herokuapp.com/openai-supabase",
+        "https://protected-citadel-60147-8c18822cbed9.herokuapp.com/openai-supabase",
         { prompt }
       );
       setResponse(data.data);
@@ -56,7 +56,7 @@ const UserPage = () => {
   const fetchLatestData = async () => {
     try {
       const response = await axios.get(
-        "https://polar-hamlet-33806-0d6c04df531d.herokuapp.com/latest-data"
+        "https://protected-citadel-60147-8c18822cbed9.herokuapp.com/latest-data"
       );
   
       const latestData = typeof response.data === "string"

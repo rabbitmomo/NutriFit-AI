@@ -18,10 +18,10 @@ const Weekly = () => {
     const fetchData = async () => {
       try {
         const recipesResponse = await fetch(
-          "https://polar-hamlet-33806-0d6c04df531d.herokuapp.com/latest-data-with-recipes"
+          "https://protected-citadel-60147-8c18822cbed9.herokuapp.com/latest-data-with-recipes"
         );
         const exercisesResponse = await fetch(
-          "https://polar-hamlet-33806-0d6c04df531d.herokuapp.com/latest-data-with-exercises"
+          "https://protected-citadel-60147-8c18822cbed9.herokuapp.com/latest-data-with-exercises"
         );
 
         const recipesData = await recipesResponse.json();

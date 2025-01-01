@@ -15,7 +15,7 @@ const Nutrition = () => {
   
   // Fetch the latest nutrition data
   useEffect(() => {
-    fetch('https://polar-hamlet-33806-0d6c04df531d.herokuapp.com/latest-nutrition')
+    fetch('https://protected-citadel-60147-8c18822cbed9.herokuapp.com/latest-nutrition')
       .then((response) => response.json())
       .then((data) => setNutritionData(data))
       .catch((error) => console.error('Error fetching nutrition data:', error));

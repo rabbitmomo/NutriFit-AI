@@ -18,7 +18,7 @@ const ExerciseId = () => {
     const fetchExercise = async () => {
       try {
         const response = await fetch(
-          `https://polar-hamlet-33806-0d6c04df531d.herokuapp.com/exercise-data/${id}`
+          `https://protected-citadel-60147-8c18822cbed9.herokuapp.com/exercise-data/${id}`
         );
         const data = await response.json();
         setExercise(data.data); 
