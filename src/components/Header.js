@@ -7,7 +7,7 @@ const Header = () => {
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
         <Typography variant="h5" component="div">
-          NutriFit AI
+          NutriFit AIiiiiii
         </Typography>
       </Toolbar>
     </AppBar>
