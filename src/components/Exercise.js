@@ -49,7 +49,7 @@ const Exercise = () => {
   return (
     <Box sx={{ padding: 3 }}>
       <Typography variant="h4" gutterBottom align="center">
-        Latest Exercises
+        Latest Exerciseseseseseses
       </Typography>
 
       <Grid container spacing={3}>
