@@ -78,9 +78,9 @@ const Weekly = () => {
       <Typography variant="h4" gutterBottom align="center"
         sx={{ 
           marginBottom: 2.5, 
-          fontSize: '2.5em', 
+          fontSize: '3em', 
           fontWeight: 'bold',
-          textAlign: 'left'}}
+          textAlign: 'centre'}}
       >
       WEEKLY PLAN
       </Typography>
@@ -93,7 +93,7 @@ const Weekly = () => {
               marginBottom: 2.5, 
               fontSize: '2em', 
               fontWeight: 'bold',
-              textAlign: 'left'}}
+              textAlign: 'center'}}
           >
             Day {day + 1}
           </Typography>
@@ -110,7 +110,7 @@ const Weekly = () => {
                   textAlign: 'left'
                 }}
               >
-                Meals for the Day
+                
               </Typography>
               <Grid container direction="column" spacing={2}>
                 {getMealsForDay(day).map((meal, index) => (
@@ -120,8 +120,8 @@ const Weekly = () => {
                       align="center"
                       sx={{ 
                         marginBottom: 2.5, 
-                        fontSize: '1.2em', 
-                        textAlign: 'left'
+                        fontSize: '1.5em', 
+                        textAlign: 'centre of the picture'
                       }}
                     >
                       {index === 0
@@ -207,9 +207,9 @@ const Weekly = () => {
                 variant="subtitle2"
                 align="center"
                 sx={{ 
-                  marginBottom: 8.5, 
+                  marginBottom: .5, 
                   fontSize: '1.5em', 
-                  textAlign: 'left'
+                  textAlign: 'center'
                 }}
               >
                 Exercise for the Day
@@ -221,6 +221,7 @@ const Weekly = () => {
                       display: "flex",
                       flexDirection: "column",
                       height: "100%",
+                      textAlign: "center",
                     }}
                   >
                     <CardMedia
@@ -237,9 +238,10 @@ const Weekly = () => {
                         to={`/exercise/${getExerciseForDay(day).id}`} 
                         sx={{
                           textDecoration: "none",
+                          
                           color: "primary.main", 
                           fontWeight: "bold",
-                          fontSize: "1.1rem",
+                          fontSize: "1.5rem",
                           "&:hover": {
                             color: "secondary.main", 
                             textDecoration: "underline",
