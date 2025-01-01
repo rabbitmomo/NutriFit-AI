@@ -1,25 +1,21 @@
-.h5{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
-  }
+/* weekly.css */
+.meals-heading {
+  font-family: 'Roboto', sans-serif; /* Choose your desired font */
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
 
-  .weekly-container {
-    padding: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .weekly-title{
-    font-family: 'Arial', sans-serif;
-    font-size: 2.5em;
-    color: #333; /* You can modify the color */
-    margin-bottom: 1em;
-  }
-  
-  .weekly-card-title {
-    font-size: 1.6em;
-    font-weight: bold;
-  }
-  
-  .weekly-card-content {
-    font-size: 1.2em;
-  }
+.day-heading {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.exercise-heading {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}

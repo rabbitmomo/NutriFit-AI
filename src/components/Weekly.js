@@ -75,27 +75,55 @@ const Weekly = () => {
 
   return (
     <Box sx={{ padding: 3 }}>
-      <Typography variant="h4" gutterBottom align="center">
-        Weekly Plan
+      <Typography variant="h4" gutterBottom align="center"
+        sx={{ 
+          marginBottom: 2.5, 
+          fontSize: '2.5em', 
+          fontWeight: 'bold',
+          textAlign: 'left'}}
+      >
+      WEEKLY PLAN
       </Typography>
 
       {/* Displaying Day 1 to Day 7 */}
       {Array.from({ length: 7 }).map((_, day) => (
         <Box key={day} sx={{ marginBottom: 3, padding: 8 }}>
-          <Typography variant="h5" sx={{ marginBottom: 2 }}>
+          <Typography variant="h5" 
+            sx={{ 
+              marginBottom: 2.5, 
+              fontSize: '2em', 
+              fontWeight: 'bold',
+              textAlign: 'left'}}
+          >
             Day {day + 1}
           </Typography>
 
           <Grid container spacing={3}>
             {/* First Column: Meals (Breakfast, Lunch, Dinner) */}
             <Grid item xs={12} sm={6}>
-              <Typography variant="subtitle2" align="center">
+            <Typography
+                variant="subtitle2"
+                align="center"
+                sx={{ 
+                  marginBottom: 2.5, 
+                  fontSize: '1.5em', 
+                  textAlign: 'left'
+                }}
+              >
                 Meals for the Day
               </Typography>
               <Grid container direction="column" spacing={2}>
                 {getMealsForDay(day).map((meal, index) => (
                   <Grid item xs={12} key={meal.id || index}>
-                    <Typography variant="subtitle2" align="center">
+                    <Typography
+                      variant="subtitle2"
+                      align="center"
+                      sx={{ 
+                        marginBottom: 2.5, 
+                        fontSize: '1.2em', 
+                        textAlign: 'left'
+                      }}
+                    >
                       {index === 0
                         ? "Breakfast"
                         : index === 1
@@ -107,7 +135,7 @@ const Weekly = () => {
                         display: "flex",
                         flexDirection: "column",
                         height: "450px", 
-                        width: "100%", 
+                        width: "90%", 
                         maxWidth: "100%", 
                       }}
                     >
@@ -178,7 +206,11 @@ const Weekly = () => {
               <Typography
                 variant="subtitle2"
                 align="center"
-                sx={{ marginBottom: 2.5 }}
+                sx={{ 
+                  marginBottom: 8.5, 
+                  fontSize: '1.5em', 
+                  textAlign: 'left'
+                }}
               >
                 Exercise for the Day
               </Typography>
