@@ -81,7 +81,7 @@ const Weekly = () => {
 
       {/* Displaying Day 1 to Day 7 */}
       {Array.from({ length: 7 }).map((_, day) => (
-        <Box key={day} sx={{ marginBottom: 3, padding: 10 }}>
+        <Box key={day} sx={{ marginBottom: 3, padding: 8 }}>
           <Typography variant="h5" sx={{ marginBottom: 2 }}>
             Day {day + 1}
           </Typography>
