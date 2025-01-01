@@ -4,9 +4,10 @@ import "../css/header.css";
 
 const Header = () => {
   return (
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: "#465f79", }}>
       <Toolbar>
         <Typography variant="h5" component="div">
+          
           NutriFit AI
         </Typography>
       </Toolbar>
