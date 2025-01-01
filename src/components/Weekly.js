@@ -82,9 +82,18 @@ const Weekly = () => {
       {/* Displaying Day 1 to Day 7 */}
       {Array.from({ length: 7 }).map((_, day) => (
         <Box key={day} sx={{ marginBottom: 3, padding: 10 }}>
-          <Typography variant="h5" sx={{ marginBottom: 2 }}>
-            Day {day + 1}
-          </Typography>
+        <Typography 
+          variant="h4" 
+          sx={{ 
+            fontSize: "3rem", 
+            fontWeight: "bold", 
+            color: "#333", 
+            textAlign: "left", 
+            marginBottom: 2, 
+          }}
+        >
+          Day {day + 1}
+        </Typography>
 
           <Grid container spacing={3}>
             {/* First Column: Meals (Breakfast, Lunch, Dinner) */}
