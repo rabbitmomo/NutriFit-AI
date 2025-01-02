@@ -6,6 +6,19 @@ import { useNavigate,Link } from "react-router-dom";
 import "../css/userpage.css"; 
 
 const UserPage = () => {
+  //// Translate text to Bahasa Malaysia (BM)
+  const bm = async (text) => {
+    try {
+      const response = await axios.post("https://protected-citadel-60147-8c18822cbed9.herokuapp.com/translate-to-bm", {
+        text: text
+      });
+      return response.data.translatedText || text;
+    } catch (err) {
+      console.error("Translation error", err);
+      return text;
+    }
+  };
+
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);

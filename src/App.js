@@ -34,6 +34,7 @@ function App() {
               <Route path="/exercise" element={<Exercise />} />
               <Route path="/exercise/:id" element={<ExerciseId />} />
               <Route path="/nutrition" element={<Nutrition />} />
+
               {/* can add more routes here */}
             </Routes>
           </div>
