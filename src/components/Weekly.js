@@ -28,8 +28,8 @@ const Weekly = () => {
         const recipesData = await recipesResponse.json();
         const exercisesData = await exercisesResponse.json();
 
-        setRecipes(recipesData.recipes || []); 
-        setExercises(exercisesData.exercises || []); 
+        setRecipes(recipesData.recipes || []);
+        setExercises(exercisesData.exercises || []);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -42,7 +42,7 @@ const Weekly = () => {
 
   const getMealsForDay = (day) => {
     if (!recipes || recipes.length === 0) {
-      return []; 
+      return [];
     }
     return [
       recipes[(day * 3) % recipes.length], // Breakfast
@@ -53,16 +53,16 @@ const Weekly = () => {
 
   const getExerciseForDay = (day) => {
     if (!exercises || exercises.length === 0) {
-      return {}; 
+      return {};
     }
     return exercises[day % exercises.length]; // Exercise
   };
 
   const capitalizeWords = (text) => {
     return text
-      .split(" ") 
+      .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize first letter of each word
-      .join(" "); 
+      .join(" ");
   };
 
   if (loading) {
@@ -75,25 +75,31 @@ const Weekly = () => {
 
   return (
     <Box sx={{ padding: 3 }}>
-      <Typography variant="h4" gutterBottom align="center"
-        sx={{ 
-          marginBottom: 2.5, 
-          fontSize: '3em', 
-          fontWeight: 'bold',
-          textAlign: 'centre'}}
+      <Typography
+        variant="h4"
+        gutterBottom
+        align="center"
+        sx={{
+          marginBottom: 2.5,
+          fontSize: "3em",
+          fontWeight: "bold",
+          textAlign: "centre",
+        }}
       >
-      WEEKLY PLAN
+        WEEKLY PLAN
       </Typography>
 
       {/* Displaying Day 1 to Day 7 */}
       {Array.from({ length: 7 }).map((_, day) => (
         <Box key={day} sx={{ marginBottom: 3, padding: 8 }}>
-          <Typography variant="h5" 
-            sx={{ 
-              marginBottom: 2.5, 
-              fontSize: '2em', 
-              fontWeight: 'bold',
-              textAlign: 'center'}}
+          <Typography
+            variant="h5"
+            sx={{
+              marginBottom: 2.5,
+              fontSize: "2em",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
           >
             Day {day + 1}
           </Typography>
@@ -101,7 +107,7 @@ const Weekly = () => {
           <Grid container spacing={3}>
             {/* First Column: Meals (Breakfast, Lunch, Dinner) */}
             <Grid item xs={12} sm={6}>
-            <Typography
+              {/* <Typography
                 variant="subtitle2"
                 align="center"
                 sx={{ 
@@ -111,17 +117,17 @@ const Weekly = () => {
                 }}
               >
                 
-              </Typography>
+              </Typography> */}
               <Grid container direction="column" spacing={2}>
                 {getMealsForDay(day).map((meal, index) => (
                   <Grid item xs={12} key={meal.id || index}>
                     <Typography
                       variant="subtitle2"
                       align="center"
-                      sx={{ 
-                        marginBottom: 2.5, 
-                        fontSize: '1.5em', 
-                        textAlign: 'centre of the picture'
+                      sx={{
+                        marginBottom: 0.5,
+                        fontSize: "1.5em",
+                        textAlign: "centre of the picture",
                       }}
                     >
                       {index === 0
@@ -134,62 +140,66 @@ const Weekly = () => {
                       sx={{
                         display: "flex",
                         flexDirection: "column",
-                        height: "450px", 
-                        width: "90%", 
-                        maxWidth: "100%", 
+                        height: "450px",
+                        width: "90%",
+                        maxWidth: "100%",
                       }}
                     >
                       <CardMedia
                         component="img"
-                        height="350" 
-                        image={meal.image || "fallback-image-url.jpg"} 
+                        height="350"
+                        image={meal.image || "fallback-image-url.jpg"}
                         alt={meal.title || "No title"}
-                        sx={{ objectFit: "cover" }} 
+                        sx={{ objectFit: "cover" }}
                       />
                       <CardContent
                         sx={{
                           display: "flex",
                           flexDirection: "column",
                           justifyContent: "flex-start",
-                          height: "120px", 
+                          height: "120px",
                           overflow: "hidden",
                           padding: 1,
                         }}
                       >
                         <Link
-                          to={`/recipe/${meal.id}`} 
+                          to={`/recipe/${meal.id}`}
                           style={{
-                            textDecoration: "none", 
-                            color: "blue", 
-                            display: "block", 
+                            textDecoration: "none",
+                            color: "blue",
+                            display: "block",
                             overflow: "hidden",
-                            textOverflow: "ellipsis", 
-                            whiteSpace: "pre-line", 
+                            textOverflow: "ellipsis",
+                            whiteSpace: "pre-line",
                           }}
                         >
                           <Typography
                             variant="h6"
                             sx={{
-                              overflow: "hidden", 
-                              textOverflow: "ellipsis", 
-                              whiteSpace: "pre-line", 
-                              flexShrink: 0, 
-                              marginBottom: "auto", 
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              whiteSpace: "pre-line",
+                              flexShrink: 0,
+                              marginBottom: "auto",
                               "&:hover": {
-                                color: "secondary.main", 
-                                textDecoration: "underline", 
+                                color: "secondary.main",
+                                textDecoration: "underline",
                               },
                             }}
                           >
-                            {meal.title ? (meal.title.length > 50 ? (
-                              <>
-                                {meal.title.substring(0, 50)}
-                                <br /> 
-                                {meal.title.substring(50)}{" "}
-                              </>
+                            {meal.title ? (
+                              meal.title.length > 50 ? (
+                                <>
+                                  {meal.title.substring(0, 50)}
+                                  <br />
+                                  {meal.title.substring(50)}{" "}
+                                </>
+                              ) : (
+                                meal.title
+                              )
                             ) : (
-                              meal.title
-                            )) : "No title"}
+                              "No title"
+                            )}
                           </Typography>
                         </Link>
                         <Typography variant="body2" sx={{ marginTop: "auto" }}>
@@ -206,10 +216,10 @@ const Weekly = () => {
               <Typography
                 variant="subtitle2"
                 align="center"
-                sx={{ 
-                  marginBottom: .5, 
-                  fontSize: '1.5em', 
-                  textAlign: 'center'
+                sx={{
+                  marginBottom: 0.5,
+                  fontSize: "1.5em",
+                  textAlign: "center",
                 }}
               >
                 Exercise for the Day
@@ -226,37 +236,46 @@ const Weekly = () => {
                   >
                     <CardMedia
                       component="img"
-                      height="1050" 
-                      image={getExerciseForDay(day).gifUrl || "fallback-image-url.gif"} 
+                      height="1050"
+                      image={
+                        getExerciseForDay(day).gifUrl ||
+                        "fallback-image-url.gif"
+                      }
                       alt={getExerciseForDay(day).name || "No exercise"}
-                      sx={{ objectFit: "cover" }} 
+                      sx={{ objectFit: "cover" }}
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography
                         variant="h6"
                         component={Link}
-                        to={`/exercise/${getExerciseForDay(day).id}`} 
+                        to={`/exercise/${getExerciseForDay(day).id}`}
                         sx={{
                           textDecoration: "none",
-                          
-                          color: "primary.main", 
+
+                          color: "primary.main",
                           fontWeight: "bold",
                           fontSize: "1.5rem",
                           "&:hover": {
-                            color: "secondary.main", 
+                            color: "secondary.main",
                             textDecoration: "underline",
                           },
                         }}
                       >
-                        {capitalizeWords(getExerciseForDay(day).name || "No exercise")}
+                        {capitalizeWords(
+                          getExerciseForDay(day).name || "No exercise"
+                        )}
                       </Typography>
                       <Typography variant="body2" color="textSecondary">
                         <strong>Body Part:</strong>{" "}
-                        {capitalizeWords(getExerciseForDay(day).bodyPart || "Not specified")}
+                        {capitalizeWords(
+                          getExerciseForDay(day).bodyPart || "Not specified"
+                        )}
                       </Typography>
                       <Typography variant="body2" color="textSecondary">
                         <strong>Target:</strong>{" "}
-                        {capitalizeWords(getExerciseForDay(day).target || "Not specified")}
+                        {capitalizeWords(
+                          getExerciseForDay(day).target || "Not specified"
+                        )}
                       </Typography>
                       <Typography variant="body2" color="textSecondary">
                         <strong>Secondary Muscles:</strong>{" "}
@@ -266,13 +285,15 @@ const Weekly = () => {
                       </Typography>
                       <Typography variant="body2" color="textSecondary">
                         <strong>Instructions:</strong>
-                        <ul>
+                        <ol>
                           {(getExerciseForDay(day).instructions || []).map(
                             (instruction, index) => (
-                              <li key={index}>{instruction}</li>
+                              <li key={index}>
+                                {instruction}
+                              </li>
                             )
                           )}
-                        </ul>
+                        </ol>
                       </Typography>
                     </CardContent>
                   </Card>

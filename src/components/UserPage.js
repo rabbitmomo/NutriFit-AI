@@ -39,7 +39,7 @@ const UserPage = () => {
       setIsAnalysisComplete(true); 
       setMessages((prevMessages) => [
         ...prevMessages,
-        { sender: "Bot", text: "Analysis complete. Fetching latest data..." },
+        { sender: "Bot", text: "Analysis complete. Fetching User Preference data analyzed by AI..." },
       ]);
 
       fetchLatestData();
@@ -75,7 +75,7 @@ const UserPage = () => {
           sender: "Bot",
           text: (
             <div>
-              <Typography variant="h6">Latest Data</Typography>
+              <Typography variant="h6">User Preference Data Analyzed by AI</Typography>
               {Object.entries(latestData.data || {}).map(([key, value]) => (
                 <div key={key} style={{ marginBottom: "8px" }}>
                   <Typography
