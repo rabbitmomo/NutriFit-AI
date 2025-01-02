@@ -157,7 +157,7 @@ const UserPage = () => {
         ) : (
           <Box sx={{ textAlign: "center", marginTop: 5 }}>
             <Typography variant="h6">
-              Ask me anything about your preferences!
+              Tell me anything about your meal and workout preferences!
             </Typography>
           </Box>
         )}

@@ -26,6 +26,7 @@ function App() {
             }}
           >
             <Routes>
+              <Route path="/" element={<UserPage />} />
               <Route path="/userpage" element={<UserPage />} />
               <Route path="/weekly" element={<Weekly />} />
               <Route path="/recipe" element={<Recipe />} />
