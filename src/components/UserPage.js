@@ -6,6 +6,7 @@ import { useNavigate,Link } from "react-router-dom";
 import "../css/userpage.css"; 
 
 const UserPage = () => {
+  
   //// Translate text to Bahasa Malaysia (BM)
   const bm = async (text) => {
     try {
