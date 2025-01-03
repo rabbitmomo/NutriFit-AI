@@ -1,28 +1,25 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, Typography, Button, Menu, MenuItem } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Menu, MenuItem, Divider } from "@mui/material";
+import { Language, Home } from "@mui/icons-material"; // Icons
 import { useNavigate } from "react-router-dom";
 import "../css/header.css";
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = useState(null); // State to manage the menu anchor
-  const [language, setLanguage] = useState('en'); // State to manage the selected language
-  const navigate = useNavigate(); // To navigate programmatically between routes
+  const [anchorEl, setAnchorEl] = useState(null); 
+  const [language, setLanguage] = useState('en'); 
+  const navigate = useNavigate(); 
 
-  // Function to handle menu opening
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  // Function to handle menu close
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
 
-  // Function to handle language selection
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
     handleMenuClose();
-    // Navigate based on the selected language
     if (lang === 'en') {
       navigate('/');
     } else {
@@ -36,57 +33,96 @@ const Header = () => {
       sx={{
         zIndex: (theme) => theme.zIndex.drawer + 1,
         backgroundColor: "#ff9e80",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
       }}
     >
       <Toolbar>
+        {/* Logo */}
         <img
           src="/logo.png"
           alt="NutriFit AI Logo"
-          style={{ height: "65px", marginRight: "5px" }}
+          style={{ height: "65px", marginRight: "10px" }}
         />
-        <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+
+        {/* Title */}
+        <Typography
+          variant="h5"
+          component="div"
+          sx={{
+            flexGrow: 1,
+            fontWeight: "bold",
+            fontFamily: "'Roboto', sans-serif",
+          }}
+        >
           NutriFit AI
         </Typography>
 
-        {/* Language selection button with black text */}
+        {/* Home Button */}
         <Button
+          startIcon={<Home />}
+          sx={{
+            textTransform: "none",
+            color: "black",
+            fontSize: "18px",
+            marginRight: "20px",
+            fontWeight: "bold",
+          }}
+          onClick={() => navigate(language === 'en' ? '/' : '/bm')}
+        >
+          Home
+        </Button>
+
+        <Button
+          startIcon={<Language />}
           color="inherit"
           onClick={handleMenuOpen}
           sx={{
-            textTransform: "none", 
-            marginRight: "20px", 
-            fontSize: "18px",  // Increase font size here
-            fontWeight: "bold", // Optional: Make text bold
-            color: "black" // Set the button text to black
+            textTransform: "none",
+            fontSize: "18px",
+            fontWeight: "bold",
+            color: "black",
           }}
         >
           {language === 'en' ? 'English' : 'Bahasa Melayu'}
         </Button>
 
-        {/* Language selection menu with black text */}
+        {/* Menu */}
         <Menu
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleMenuClose}
+          sx={{
+            "& .MuiPaper-root": {
+              borderRadius: "8px",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+              backgroundColor: "#ffffff", // Set the background to white
+              minWidth: "150px",
+            },
+          }}
         >
-          <MenuItem 
-            onClick={() => handleLanguageChange('en')} 
+          <MenuItem
+            onClick={() => handleLanguageChange('en')}
             sx={{
-              fontSize: "16px", 
-              fontWeight: "bold",  // Optional: Make text bold
-              color: "black" // Set the menu item text to black
-            }}  
+              fontSize: "16px",
+              fontWeight: "bold",
+              color: "black",
+              "&:hover": { backgroundColor: "#ffccbc" },
+            }}
           >
+            <Language fontSize="small" sx={{ marginRight: "8px" }} />
             English
           </MenuItem>
-          <MenuItem 
-            onClick={() => handleLanguageChange('bm')} 
+          <Divider />
+          <MenuItem
+            onClick={() => handleLanguageChange('bm')}
             sx={{
-              fontSize: "16px", 
-              fontWeight: "bold",  // Optional: Make text bold
-              color: "black" // Set the menu item text to black
-            }}  
+              fontSize: "16px",
+              fontWeight: "bold",
+              color: "black",
+              "&:hover": { backgroundColor: "#ffccbc" },
+            }}
           >
+            <Language fontSize="small" sx={{ marginRight: "8px" }} />
             Bahasa Melayu
           </MenuItem>
         </Menu>
